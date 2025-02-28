@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Path ke informasi baterai
+BAT_PATH="/sys/class/power_supply/BAT0"
+BATTERY_PERCENT=$(cat "$BAT_PATH/capacity")
+STATUS=$(cat "$BAT_PATH/status")
+
+# Tentukan ikon berdasarkan persentase baterai
+if [ "$STATUS" = "Charging" ]; then
+    ICON=""
+elif [ "$BATTERY_PERCENT" -ge 80 ]; then
+    ICON="󰁹"
+elif [ "$BATTERY_PERCENT" -ge 60 ]; then
+    ICON="󰂁"
+elif [ "$BATTERY_PERCENT" -ge 40 ]; then
+    ICON="󰁾"
+elif [ "$BATTERY_PERCENT" -ge 20 ]; then
+    ICON="󰁼"
+else
+    ICON="󰁼"
+fi
+
+# Tampilkan hasil
+printf "%s %d%%\n" "$ICON" "$BATTERY_PERCENT"
