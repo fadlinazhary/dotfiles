@@ -1,0 +1,61 @@
+@import url('colors.css');
+
+* {
+    font-family: 'JetBrainsMono Nerd Font Propo';
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: @background-color;
+    color: @text-color;
+}
+
+.modules-left,
+.modules-right {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#custom-logo {
+    color: @accent-color;
+    font-size: 16px;
+}
+
+#workspaces {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+#workspaces button {
+    background-color: @secondary-color;
+    color: @text-color;
+    margin-right: 8px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 16px;
+    transition: all 0.4s;
+    transition-timing-function: cubic-bezier(0.2, 0.0, 0, 1.0);
+}
+
+#workspaces button.active {
+    background-color: @accent-color;
+    color: @secondary-color;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-weight: bold;
+}
+
+#tray,
+#battery,
+#wireplumber,
+#network {
+    padding-left: 4px;
+    padding-right: 4px;
+    font-weight: 600;
+}
+
+#clock {
+    font-weight: bold;
+}

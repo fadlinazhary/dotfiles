@@ -1,0 +1,58 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 38,
+    "modules-left": ["custom/logo"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "battery", "wireplumber", "network", "clock"],
+    "spacing": 8,
+    "custom/logo": {
+        "format": "󰣇"
+    },
+    "hyprland/workspaces": {
+        "format": "{name}"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
+        "format-plugged": "󰚥",
+        "format-warning": "󱃍 {capacity}%",
+        "format-critical": "󰀨",
+        "states": {
+            "warning": 15,
+            "critical": 10
+        },
+        "tooltip": true,
+        "tooltip-format": "󰁹 Remaining: {time}",
+        "tooltip-format-charging": "󱐋 Charging: {time}",
+        "tooltip-format-plugged": "󰚥 AC Powered",
+        "format-icons": ["󰁻", "󰁽", "󰁾", "󰂀", "󰂁", "󰁹"]
+    },
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "max-volume": 110,
+        "format-icons": ["󰕿", "󰖀", "󰕾"],
+        "tooltip": false
+    },
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰕑",
+        "tooltip": true,
+        "tooltip-format-wifi": "Connected to {essid} ({signalStrength}%)",
+        "format-icons": {
+            "wifi": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"]
+        }
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip": true,
+        "tooltip-format":"{:%A, %B %d}"
+    }
+}
