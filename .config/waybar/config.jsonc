@@ -33,11 +33,12 @@
         "format-icons": ["󰁻", "󰁽", "󰁾", "󰂀", "󰂁", "󰁹"]
     },
     "wireplumber": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}",
         "format-muted": "󰝟",
         "max-volume": 110,
         "format-icons": ["󰕿", "󰖀", "󰕾"],
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "Vol: {volume}%"
     },
     "network": {
         "format": "{ifname}",

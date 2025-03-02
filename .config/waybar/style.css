@@ -10,6 +10,16 @@ window#waybar {
     color: @text-color;
 }
 
+tooltip {
+    background-color: @background-color;
+}
+
+tooltip label {
+    font-family: 'Roboto';
+    color: @text-color;
+    font-weight: 400;
+}
+
 .modules-left,
 .modules-right {
     padding-left: 8px;
@@ -54,6 +64,7 @@ window#waybar {
     padding-left: 4px;
     padding-right: 4px;
     font-weight: 600;
+    font-size: 16px;
 }
 
 #clock {
