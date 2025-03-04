@@ -45,7 +45,7 @@ tooltip label {
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 16px;
-    transition: all 0.4s;
+    transition: padding 0.4s;
     transition-timing-function: cubic-bezier(0.2, 0.0, 0, 1.0);
 }
 
