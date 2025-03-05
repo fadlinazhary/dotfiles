@@ -67,6 +67,10 @@ tooltip label {
     font-size: 16px;
 }
 
+#wireplumber {
+    font-size: 18px;
+}
+
 #clock {
     font-weight: bold;
 }
