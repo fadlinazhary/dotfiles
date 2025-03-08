@@ -17,18 +17,18 @@
         "spacing": 8
     },
     "battery": {
-        "format": "{icon} {capacity}%",
-        "format-charging": "󱐋 {capacity}%",
+        "format": "{icon}",
+        "format-charging": "󱐋",
         "format-plugged": "󰚥",
-        "format-warning": "󱃍 {capacity}%",
+        "format-warning": "󱃍",
         "format-critical": "󰀨",
         "states": {
             "warning": 15,
             "critical": 10
         },
         "tooltip": true,
-        "tooltip-format": "󰁹 Remaining: {time}",
-        "tooltip-format-charging": "󱐋 Charging: {time}",
+        "tooltip-format": "󰁹 {capacity}%",
+        "tooltip-format-charging": "󱐋 Charging: {capacity}%",
         "tooltip-format-plugged": "󰚥 AC Powered",
         "format-icons": ["󰁻", "󰁽", "󰁾", "󰂀", "󰂁", "󰁹"]
     },
