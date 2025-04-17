@@ -1,0 +1,11 @@
+@import "hyprion"
+
+configuration {
+    modes: "window,drun,run,ssh";
+    font: "JetBrainsMonoNL Nerd Font 12";
+    show-icons: true;
+    icon-theme: "Fluent";
+    terminal: "kitty";
+    drun-display-format: "{name}";
+    display-drun: "";
+}

@@ -1,0 +1,100 @@
+* {
+    background:                 rgba(239, 241, 245, 0.85);
+    background-color:           rgba(239, 241, 245, 0.85);
+    foreground:                 rgb(76, 79, 105);
+    border-color:               rgb(140, 143, 161, 0.85);
+    separatorcolor:             transparent;
+    red:                        rgba(210, 15, 57, 0.85);
+    blue:                       rgba(30, 102, 245, 0.85);
+
+    normal-background:          transparent;
+    normal-foreground:          rgb(76, 79, 105);
+
+    selected-normal-background: rgba(30, 102, 245, 0.85);
+    selected-normal-foreground: rgba(239, 241, 245, 0.85);
+    selected-active-background: rgba(30, 102, 245, 0.85);
+    selected-active-foreground: rgba(239, 241, 245, 0.85);
+
+    urgent-background:          transparent;
+    urgent-foreground:          rgba(210, 15, 57, 0.85);
+    selected-urgent-background: rgba(210, 15, 57, 0.85);
+    selected-urgent-foreground: rgba(239, 241, 245, 0.85);
+
+    alternate-normal-background: transparent;
+    alternate-normal-foreground: rgb(76, 79, 105);
+    alternate-active-background: transparent;
+    alternate-active-foreground: rgba(30, 102, 245, 0.85);
+    alternate-urgent-background: transparent;
+    alternate-urgent-foreground: rgba(210, 15, 57, 0.85);
+
+    active-background:          rgba(239, 241, 245, 0.85);
+    active-foreground:          rgba(30, 102, 245, 0.85);
+
+    font: "Roboto Medium 13";
+}
+
+
+window {
+    padding: 12px;
+    border-radius: 16px;
+    width: 450px;
+    border: 2;
+    border-color: @border-color;
+    location: south;
+    transparency: "real";
+    y-offset: -12px;
+}
+
+mainbox {
+    children: [ listview, inputbar ];
+    background-color: transparent;
+}
+
+listview {
+    lines: 8;
+    background-color: transparent;
+    dynamic: true;
+}
+
+element {
+
+}
+
+element-icon {
+    size: 24px;
+}
+
+element-text {
+    margin: 2px 0 0 4px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    padding: 2px;
+    border: 1px;
+    border-color: @border-color;
+    border-radius: 12px;
+    margin: 8px 0 0 0;
+}
+
+prompt {
+    font: "JetBrainsMono Nerd Font Mono 16";
+    padding: 4px 0;
+    margin: 0 8px 0 12px;
+}
+
+entry {
+    padding: 4px 0;
+    margin: 4px 0 0 0;
+    placeholder: "Launch app";
+    font: "Roboto 12";
+}
+
+element {
+    padding: 8px;
+    border-radius: 12px;
+}
+
+scrollbar {
+    handle-width: 0;
+}
