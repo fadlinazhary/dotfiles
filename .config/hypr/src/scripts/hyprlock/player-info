@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Check if a media player is running
+if playerctl metadata > /dev/null 2>&1; then
+    # Retrieve and capitalize the player name
+    PLAYER=$(playerctl metadata --format '{{playerName}}' | sed 's/.*/\u&/')
+    PLAYER_ICON="󰎇"  # Default icon
+
+    # Assign specific icons based on known players
+    case "$PLAYER" in
+        Spotify)
+            PLAYER_ICON="󰓇"
+            ;;
+        Firefox|Brave|Vivaldi|Chromium|Chrome)
+            PLAYER_ICON="󰇧"
+            ;;
+    esac
+
+    # Retrieve song title and artist
+    SONG_TITLE=$(playerctl metadata --format '{{xesam:title}}')
+    SONG_ARTIST=$(playerctl metadata --format '{{xesam:artist}}')
+
+    # Display the information
+    if [ -n "$PLAYER_ICON" ] && [ -n "$PLAYER" ]; then
+        printf "%s %s\n" "$PLAYER_ICON " "$PLAYER"
+    elif [ -n "$PLAYER_ICON" ]; then
+        printf "%s\n" "$PLAYER_ICON "
+    elif [ -n "$PLAYER" ]; then
+        printf "%s\n" "$PLAYER"
+    fi
+
+    # Display song title and artist
+    if [ -n "$SONG_TITLE" ]; then
+        printf "%s\n" "$SONG_TITLE"
+    fi
+    if [ -n "$SONG_ARTIST" ]; then
+        printf "%s\n" "$SONG_ARTIST"
+    fi
+else
+    # No media player is running
+    echo "No media playing"
+fi

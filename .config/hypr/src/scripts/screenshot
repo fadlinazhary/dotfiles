@@ -1,1 +1,28 @@
 #!/bin/sh
+
+SCREENSHOT_DIR="${HOME}/Pictures/Screenshots"
+FILENAME="Screenshot_on_$(date +'%B_%d_%Y')_at_$(date +'%H:%M:%S').png"
+DEFAULT_MONITOR="eDP-1"
+
+# Ensure the directory exists and notify if newly created
+if [ ! -d "$SCREENSHOT_DIR" ]; then
+    mkdir -p "$SCREENSHOT_DIR" && notify-send "Directory created" "Screenshot directory has been created"
+fi
+
+# Capture function: if mode is 'output', append the default monitor flag
+capture_screenshot() {
+    local mode="$1"
+    # build hyprshot args
+    local args=(-m "$mode")
+    if [[ "$mode" == "output" ]]; then
+        args+=(-m "$DEFAULT_MONITOR")
+    fi
+    hyprshot "${args[@]}" -z -o "$SCREENSHOT_DIR" -f "$FILENAME"
+}
+
+# Dispatch based on the first argument
+case "$1" in
+    --monitor) capture_screenshot output ;;
+    --region)  capture_screenshot region ;;
+    *) echo "Usage: $0 [--monitor | --region]" ;;
+esac

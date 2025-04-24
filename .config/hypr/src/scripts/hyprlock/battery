@@ -7,7 +7,7 @@ STATUS=$(cat "$BAT_PATH/status")
 
 # Tentukan ikon berdasarkan persentase baterai
 if [ "$STATUS" = "Charging" ]; then
-    ICON=""
+    ICON="󱐋"
 elif [ "$BATTERY_PERCENT" -ge 80 ]; then
     ICON="󰁹"
 elif [ "$BATTERY_PERCENT" -ge 60 ]; then
@@ -17,8 +17,8 @@ elif [ "$BATTERY_PERCENT" -ge 40 ]; then
 elif [ "$BATTERY_PERCENT" -ge 20 ]; then
     ICON="󰁼"
 else
-    ICON="󰁼"
+    ICON="󰗖"
 fi
 
 # Tampilkan hasil
-printf "%s %d%%\n" "$ICON" "$BATTERY_PERCENT"
+printf "%s %d%%\n" "$ICON " "$BATTERY_PERCENT"
