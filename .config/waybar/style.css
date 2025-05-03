@@ -17,7 +17,7 @@ tooltip {
 tooltip label {
     font-family: 'Roboto';
     color: @text-color;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .modules-left,
@@ -29,23 +29,24 @@ tooltip label {
 #custom-logo {
     color: @accent-color;
     font-size: 16px;
+    padding: 0 6px;
 }
 
 #workspaces {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 #workspaces button {
     background-color: @secondary-color;
     color: @text-color;
     margin-right: 8px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 16px;
-    transition: padding 0.4s;
+    transition: padding 0.40s;
     transition-timing-function: cubic-bezier(0.2, 0.0, 0, 1.0);
 }
 

@@ -1,28 +1,31 @@
 #!/bin/sh
 
 SCREENSHOT_DIR="${HOME}/Pictures/Screenshots"
-FILENAME="Screenshot_on_$(date +'%B_%d_%Y')_at_$(date +'%H:%M:%S').png"
-DEFAULT_MONITOR="eDP-1"
+TIMESTAMP="$(date +'%B %d %Y at %H:%M:%S')"
+FILENAME="Screenshot ${TIMESTAMP}.png"
+FILEPATH="${SCREENSHOT_DIR}/${FILENAME}"
 
-# Ensure the directory exists and notify if newly created
+# Ensure the screenshot directory exists
 if [ ! -d "$SCREENSHOT_DIR" ]; then
-    mkdir -p "$SCREENSHOT_DIR" && notify-send "Directory created" "Screenshot directory has been created"
+    mkdir -p "$SCREENSHOT_DIR" && notify-send "Directory Created" "Screenshot directory created at $SCREENSHOT_DIR"
 fi
 
-# Capture function: if mode is 'output', append the default monitor flag
-capture_screenshot() {
-    local mode="$1"
-    # build hyprshot args
-    local args=(-m "$mode")
-    if [[ "$mode" == "output" ]]; then
-        args+=(-m "$DEFAULT_MONITOR")
-    fi
-    hyprshot "${args[@]}" -z -o "$SCREENSHOT_DIR" -f "$FILENAME"
+capture_fullscreen() {
+    grim "$FILEPATH" && \
+    wl-copy < "$FILEPATH" && \
+    notify-send -i "$FILEPATH" "Screenshot Taken" "Full screen captured and copied to clipboard."
 }
 
-# Dispatch based on the first argument
+capture_region() {
+    REGION=$(slurp)
+    [ -z "$REGION" ] && notify-send "Screenshot Cancelled" "No region selected." && exit 1
+    grim -g "$REGION" "$FILEPATH" && \
+    wl-copy < "$FILEPATH" && \
+    notify-send -i "$FILEPATH" "Screenshot Taken" "Region captured and copied to clipboard."
+}
+
 case "$1" in
-    --monitor) capture_screenshot output ;;
-    --region)  capture_screenshot region ;;
-    *) echo "Usage: $0 [--monitor | --region]" ;;
+    --monitor|--fullscreen) capture_fullscreen ;;
+    --region) capture_region ;;
+    *) echo "Usage: $0 [--monitor|--fullscreen | --region]" ;;
 esac
